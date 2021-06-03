@@ -2,11 +2,12 @@ import React from 'react'
 import { View, Image, StyleSheet, Text } from 'react-native'
 
 export default function SwipeableImage({user}) {
+    console.log(user)
     return (
         <View>
-            <Image src={{uri: user.picture.large}} style={styles.photo}></Image>
+            <Image source={{uri: user.picture.large}} style={styles.photo} />
             <View style={styles.textContainer}>
-                <View style={style.textRow}>
+                <View style={styles.textRow}>
                     <Text>{user.name.first}</Text>
                     <Text>{user.dob.age}</Text>
                 </View>
@@ -28,6 +29,6 @@ const styles = StyleSheet.create({
     },
     textRow:{
         flexDirection: 'row',
-        alignItems:center
+        alignItems:'center'
     }
 })
