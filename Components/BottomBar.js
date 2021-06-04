@@ -18,7 +18,6 @@ const BottomBar = () => (
 
 export default BottomBar;
 
-
 const styles = StyleSheet.create({
     container: {
         height: 75,
