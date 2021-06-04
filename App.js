@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   swipes:{
     flex:1,
-    paddingTop:20,
+    paddingTop:22,
     shadowColor:'#000',
     shadowOffset:{
       width:0,
