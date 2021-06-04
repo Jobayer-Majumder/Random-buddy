@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Alert, StyleSheet, View, Text } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Alert, StyleSheet, View} from 'react-native';
 import axios from 'axios'
-import SwipeableImage from './components/SwipeableImage';
 import Constants from 'expo-constants'
 import TopBar from './components/TopBar';
+import Swipes from './components/Swipes';
 import BottomBar from './components/BottomBar';
 
 export default function App() {
   const [users, setUsers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const swipesRef = useRef(null)
+  
   async function fetchRandomUsers(){
     try {
       const {data} = await axios.get('https://randomuser.me/api/?gender=female&results=50')
@@ -18,14 +20,46 @@ export default function App() {
       Alert.alert('Error fetching users', '', [{text: 'Retry', onPress: () => fetchRandomUsers()}])
     }
   }
+
   useEffect(() =>{
     fetchRandomUsers()
   }, [])
+
+  function handleLike() {
+    console.log('like')
+    nextUser()
+  }
+
+  function handlePass() {
+    console.log('pass')
+    nextUser()
+  }
+
+  function nextUser() {
+    const nextIndex = users.length - 2 === currentIndex ? 0 : currentIndex + 1
+    setCurrentIndex(nextIndex)
+  }
+
+ 
+
   return (
     <View style={styles.container}>
       <TopBar></TopBar>
       <View style={styles.swipes}>
-          {users.length > 1 && (<SwipeableImage user={users[currentIndex]}/>)}
+        {users.length > 1 &&
+          users.map(
+            (u, i) =>
+              currentIndex === i && (
+                <Swipes
+                  key={i}
+                  ref={swipesRef}
+                  currentIndex={currentIndex}
+                  users={users}
+                  handleLike={handleLike}
+                  handlePass={handlePass}
+                ></Swipes>
+              )
+          )}
       </View>
       <BottomBar />
     </View>
@@ -35,7 +69,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop:Constants.statusBarHeight
+    marginTop:Constants.statusBarHeight,
+    backgroundColor: '#e2e2e2'
   },
   swipes:{
     flex:1,
