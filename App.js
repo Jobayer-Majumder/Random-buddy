@@ -4,6 +4,7 @@ import axios from 'axios'
 import Constants from 'expo-constants'
 import TopBar from './components/TopBar';
 import Swipes from './components/Swipes';
+import BottomBar from './components/BottomBar';
 
 export default function App() {
   const [users, setUsers] = useState([]);
@@ -60,6 +61,7 @@ export default function App() {
               )
           )}
       </View>
+      <BottomBar />
     </View>
   );
 }
