@@ -1,12 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import BottomBar from './Components/bottomBar/BottomBar';
-
 import React, { useEffect, useState } from 'react';
 import { Alert, StyleSheet, View, Text } from 'react-native';
 import axios from 'axios'
 import SwipeableImage from './components/SwipeableImage';
 import Constants from 'expo-constants'
 import TopBar from './components/TopBar';
+import BottomBar from './Components/BottomBar';
+
 export default function App() {
   const [users, setUsers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,6 +27,7 @@ export default function App() {
       <View style={styles.swipes}>
           {users.length > 1 && (<SwipeableImage user={users[currentIndex]}/>)}
       </View>
+      <BottomBar />
     </View>
   );
 }
