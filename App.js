@@ -4,7 +4,7 @@ import axios from 'axios'
 import SwipeableImage from './components/SwipeableImage';
 import Constants from 'expo-constants'
 import TopBar from './components/TopBar';
-import BottomBar from './Components/BottomBar';
+import BottomBar from './components/BottomBar';
 
 export default function App() {
   const [users, setUsers] = useState([]);
