@@ -1,3 +1,6 @@
+import { StatusBar } from 'expo-status-bar';
+import BottomBar from './Components/bottomBar/BottomBar';
+
 import React, { useEffect, useState } from 'react';
 import { Alert, StyleSheet, View, Text } from 'react-native';
 import axios from 'axios'
