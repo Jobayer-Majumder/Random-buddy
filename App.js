@@ -21,6 +21,7 @@ export default function App() {
   }, [])
   return (
     <View style={styles.container}>
+      
       <TopBar></TopBar>
       <View style={styles.swipes}>
           {users.length > 1 && (<SwipeableImage user={users[currentIndex]}/>)}

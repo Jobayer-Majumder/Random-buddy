@@ -23,7 +23,7 @@ export default function SwipeableImage({user}) {
 const styles = StyleSheet.create({
     photo:{
         height: '500px',
-        resizeMode: 'cover',
+        resizeMode: 'cover', 
         borderRadius: 20
     },
     textContainer:{
