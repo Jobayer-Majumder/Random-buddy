@@ -6,8 +6,12 @@ import BottomBar from './Components/bottomBar/BottomBar';
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
       <Text>hello world</Text>
       <BottomBar />
+=======
+      <Text>hello react native</Text>
+>>>>>>> 94f4c460b12f5a68755bb7e183cdfa090dad5747
       <StatusBar style="auto" />
     </View>
   );
